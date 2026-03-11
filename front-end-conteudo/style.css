@@ -1,0 +1,19 @@
+body {
+    grid-template-areas:
+        "nav nav"
+        "main main";
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
