@@ -1,12 +1,3 @@
-FROM php:8.3-cli
+FROM httpd:alpine 
 
-WORKDIR /app
-
-COPY src/ src/
-COPY data/ data/
-
-RUN chmod -R 777 data/
-
-EXPOSE 80
-
-CMD ["php", "-S", "0.0.0.0:80", "-t", "src/public", "src/public/index.php"]
+COPY src /usr/local/apache2/htdocs
