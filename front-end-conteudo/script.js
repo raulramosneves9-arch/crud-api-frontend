@@ -27,9 +27,9 @@ async function updateUser() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            name: "Victor Atualizado",
-            age: 25,
-            email: "novo@email.com"
+            name: document.getElementById('inputName').value,
+            age: document.getElementById('inputAge').value,
+            email: document.getElementById('inputEmail').value
         }),
     });
     const updated = await response.json();
