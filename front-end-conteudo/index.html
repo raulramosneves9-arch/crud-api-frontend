@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="remote.css">
+</head>
+
+<body>
+    <nav class="navbar justify-content-center" style="background-color: #212529">
+        <span class="navbar-brand text-white fw-bold">
+            <h1>PHP/JS CRUD Project</h1>
+        </span>
+    </nav>
+
+    <main class="row align-items-center justify-content-center">
+        <div class="card p-5 m-5 col-12 col-md-8">
+            <h3 class="fs-1 fw-bold pb-5">Users</h3>
+            <span style="display: none;">No users found.</span>
+            <section class="row">
+                <article class="card col p-3 m-3 w-50 d-flex flex-column gap-2">
+                    <div class="col-auto card-body">
+                        <h5 class="fw-bold">Nome</h5>
+                        <p class="mb-1"><strong>Age:</strong> 20</p>
+                        <p class="mb-1"><strong>Email:</strong> seu@email.com</p>
+                        <div class="card-footer d-flex gap-2 w-100">
+                            <button class="btn btn-outline-dark btn-sm w-50">Delete</button>
+                            <button class="btn btn-outline-danger btn-sm w-50">Edit</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card row p-3 m-3 w-50 d-flex flex-column gap-2">
+                    <div class="col-auto card-body">
+                        <h5 class="fw-bold">Nome</h5>
+                        <p class="mb-1"><strong>Age:</strong> 20</p>
+                        <p class="mb-1"><strong>Email:</strong> seu@email.com</p>
+                        <div class="card-footer d-flex gap-2 w-100">
+                            <button class="btn btn-outline-dark btn-sm w-50">Delete</button>
+                            <button class="btn btn-outline-danger btn-sm w-50">Edit</button>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+
+        <div class="card p-5 m-5 col-12 col-md-8">
+            <h2 class="fs-1 fw-bold pb-5">Create User</h2>
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="pe-3"><input type="text" class="form-control"></td>
+                        <td class="pe-3"><input type="number" class="form-control"></td>
+                        <td class="pe-3"><input type="email" class="form-control"></td>
+                        <td><button class="btn btn-dark">create</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
