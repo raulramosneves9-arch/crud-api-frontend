@@ -11,8 +11,9 @@ const userEmail = document.getElementById('inputEmail');
 
 // BOTÃO CRIAR FORMLUÁRIO
 const createButton = document.getElementById('createButton');
-const deletebutton = document.getElementById('deleteButton');
 createButton.addEventListener('click', createUser); // ← conecta botão à função
 
+// DELETE BOTTON
+const deletebutton = document.getElementById('deleteButton');
+
 renderUsers();
-//addEventListener('click', () => deleteUser);

@@ -1,4 +1,6 @@
 import { getUsers } from '../api/read.js';
+import { deleteUser } from '../api/delete.js';
+
 
 export async function renderUsers() {
     const data = await getUsers();
@@ -6,7 +8,7 @@ export async function renderUsers() {
         const userList = document.getElementById('user-list')
 
         userList.innerHTML += `
-            <article class="card col-md-4 p-3 px-3">
+            <article class="card p-5 gap-3">
                 <div class="card-body">
                     <h5 class="fw-bold">${user.name}</h5>
                     <p class="mb-1"><strong>Age:</strong> ${user.age}</p>
@@ -18,5 +20,12 @@ export async function renderUsers() {
                 </div>
             </article>
         `
+        // ADICIONA ISSO:
+        document.getElementById(`delete-${user.id}`)
+            .addEventListener('click', () => {
+                console.log('clicou delete', user.id)
+                deleteUser(user.id)
+            })
+
     });
 }
