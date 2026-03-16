@@ -13,5 +13,3 @@ export async function createUser() {
     const created = await response.json(); // ← agora está DENTRO da função!
     console.log(created);
 }
-
-createButton.addEventListener('click', createUser); // ← conecta botão à função

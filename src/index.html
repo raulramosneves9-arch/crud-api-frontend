@@ -10,20 +10,26 @@
 </head>
 
 <body>
+    <!-- NAV START -->
     <nav class="navbar justify-content-center" style="background-color: #212529">
         <span class="navbar-brand text-white fw-bold">
             <h1>PHP/JS CRUD Project</h1>
         </span>
     </nav>
+    <!-- NAV END -->
 
+    <!-- MAIN START -->
     <main class="row align-items-center justify-content-center">
         <div class="card p-5 m-5 col-12 col-md-8">
             <h3 class="fs-1 fw-bold pb-5">Users</h3>
             <span style="display: none;">No users found.</span>
-            <section id="user-list" class="row">
-            </section>
+
+            <!-- CARD USERS -->
+            <section id="user-list" class="row g-3 px-2">
+                <!-- CARD USERS -->
         </div>
 
+        <!-- CREATE USER -->
         <div class="card p-5 m-5 col-12 col-md-8">
             <h2 class="fs-1 fw-bold pb-5">Create User</h2>
             <table class="w-100">
@@ -34,7 +40,7 @@
                         <th>Email</th>
                     </tr>
                 </thead>
-
+                <!-- INPUTS - FORMS -->
                 <tbody>
                     <tr>
                         <td class="pe-3"><input type="text" class="form-control" id="inputName"></td>
@@ -46,6 +52,8 @@
             </table>
         </div>
     </main>
+    <!-- MAIN END -->
+
     <script src="app.js" type="module"></script>
 </body>
 
