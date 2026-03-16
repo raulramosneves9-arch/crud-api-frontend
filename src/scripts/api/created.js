@@ -1,5 +1,5 @@
 // Função para CRIAR um novo usuário
-async function createUser() {
+export async function createUser() {
     const response = await fetch("http://localhost:8000/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

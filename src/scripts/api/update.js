@@ -1,5 +1,5 @@
 // Função para ATUALIZAR um usuário, POR COMPLETO
-async function updateUser() {
+export async function updateUser() {
     const response = await fetch("http://localhost:8000/api/users?index=0", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
