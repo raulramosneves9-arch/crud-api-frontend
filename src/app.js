@@ -1,7 +1,7 @@
 // ==================== IMPORTS ====================
 import { createUser } from './scripts/api/create.js';
 import { deleteUser } from './scripts/api/delete.js';
-import { updateUser, patchUser } from './scripts/api/update.js';
+import { putUser, patchUser } from './scripts/api/update.js';
 import { renderUsers, findUserById } from './scripts/dom/render.js';
 
 // ==================== CONFIG ====================
@@ -86,7 +86,7 @@ form.addEventListener('submit', async (event) => {
             const allChanged = Object.keys(changed).length === 3;
 
             if (allChanged) {
-                await updateUser(apiUrl, editingId, { name, age, email });
+                await putUser(apiUrl, editingId, { name, age, email });
             } else {
                 await patchUser(apiUrl, editingId, changed);
             }
