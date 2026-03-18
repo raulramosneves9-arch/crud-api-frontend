@@ -1,11 +1,15 @@
-// Função para DELETAR um usuário
-export async function deleteUser(id) {
-    const response = await fetch(`http://localhost:8000/api/users?id=${id}`, {
-        method: "DELETE",
-    });
-    const result = await response.json();
-    return result;
+export async function deleteUser(apiUrl, id) {
+    const response = await fetch(`${apiUrl}?id=${id}`,
+        { method: 'DELETE' }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            data.error || 'Failed to delete user'
+        );
+    }
+
+    return data;
 }
-
-
-

@@ -1,26 +1,57 @@
-export async function putUser(id, { name, age, email }) {
-    const response = await fetch(`http://localhost:8000/api/users?id=${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, age, email }),
-    });
-    const updated = await response.json();
-    console.log(updated);
-    return updated;
+// PUT — substituição completa
+export async function putUser(
+    apiUrl, id, { name, age, email }
+) {
+    const response = await fetch(
+        `${apiUrl}?id=${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name,
+            age: Number(age),
+            email
+        }),
+    }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            data.error || 'Failed to update user'
+        );
+    }
+
+    return data;
 }
 
-export async function patchUser(id, fields) {
-    const response = await fetch(`http://localhost:8000/api/users?id=${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fields }),
-    });
-    const patch = await response.json();
-    console.log(patch);
-    return patch;
-}
+// PATCH — atualização parcial
+export async function patchUser(
+    apiUrl, id, fields
+) {
+    if (fields.age !== undefined) {
+        fields.age = Number(fields.age);
+    }
 
-// function updateUser(user) {
-//     const user = 
-//  }
-// //Verificação:
+    const response = await fetch(
+        `${apiUrl}?id=${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(fields),
+    }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            data.error || 'Failed to patch user'
+        );
+    }
+
+    return data;
+}
