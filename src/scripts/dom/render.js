@@ -1,14 +1,14 @@
-// RENDER.JS
+// ==================== IMPORTS ====================
 import { getUsers } from '../api/read.js';
 
-// CACHE
+// ==================== CACHE ====================
 let usersCache = [];
 
 export function findUserById(id) {
     return usersCache.find((user) => user.id === id);
 }
 
-// RENDER
+// ==================== RENDER ====================
 export async function renderUsers(apiUrl) {
     const users = await getUsers(apiUrl);
     usersCache = users;

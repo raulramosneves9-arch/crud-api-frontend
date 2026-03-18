@@ -5,19 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Users</title>
+
+    <!-- ========== STYLES ========== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- ========== HEADER ========== -->
     <header class="bg-dark text-white py-4 mb-4">
         <h1 class="text-center m-0">PHP/JS CRUD Project</h1>
     </header>
 
+    <!-- ========== MAIN ========== -->
     <main class="container">
-        <!-- SEÇÃO: USERS -->
+
+        <!-- USERS -->
         <section class="card p-4 mb-4">
             <h2 class="mb-3">Users</h2>
             <div class="row g-3" id="users">
@@ -25,11 +29,10 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: CREATE USER -->
+        <!-- FORM (CREATE / EDIT) -->
         <section class="card p-4">
             <h2 class="mb-3" id="form-title">Create User</h2>
 
-            <!-- Alerta de erro (escondido por padrão) -->
             <div id="form-error" class="alert alert-danger d-none" role="alert"></div>
 
             <form id="create-user-form" class="row g-3 align-items-end">
@@ -54,36 +57,15 @@
                     <button type="button" id="cancel-edit" class="btn btn-outline-secondary"
                         style="display:none;">Cancel</button>
                 </div>
+
             </form>
         </section>
 
-        <!-- SEÇÃO: EDIT USER (oculta por padrão) -->
-        <form id="edit-section" class="card p-5" style="display: none;">
-            <h2 class="fs-1 fw-bold mb-4">Update User</h2>
-            <input type="hidden" id="editId">
-            <div class="d-flex gap-3 align-items-end">
-                <div class="flex-fill">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" id="editName" placeholder="Name">
-                </div>
-                <div class="flex-fill">
-                    <label class="form-label">Age</label>
-                    <input type="number" class="form-control" id="editAge" placeholder="Age">
-                </div>
-                <div class="flex-fill">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" id="editEmail" placeholder="Email">
-                </div>
-                <div>
-                    <button type="button" id="cancelButton" class="btn btn-danger">Cancel</button>
-                    <button type="button" id="updateButton" class="btn btn-dark">Update</button>
-                </div>
-            </div>
-        </form>
-
     </main>
 
+    <!-- ========== SCRIPTS ========== -->
     <script src="app.js" type="module"></script>
+
 </body>
 
 </html>
