@@ -1,3 +1,5 @@
+import { renderUsers } from "../dom/render.js";
+
 // Função para CRIAR um novo usuário
 export async function createUser() {
     const response = await fetch("http://localhost:8000/api/users", {
@@ -12,4 +14,5 @@ export async function createUser() {
 
     const created = await response.json(); // ← agora está DENTRO da função!
     console.log(created);
+    renderUsers();
 }
