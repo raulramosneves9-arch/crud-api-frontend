@@ -27,7 +27,7 @@ async function handleDelete(event) {
 document.addEventListener('click', handleDelete);
 
 // Abre o formulário de edição com os dados do usuário
-async function handleEdit(event) {
+async function putpatchEdit(event) {
     const btn = event.target.closest('.editbtn');
     if (!btn) return;
 
@@ -63,6 +63,6 @@ document.getElementById('updateButton').addEventListener('click', async () => {
     await renderUsers();
 });
 
-document.addEventListener('click', handleEdit);
+document.addEventListener('click', putpatchEdit);
 
 renderUsers();
