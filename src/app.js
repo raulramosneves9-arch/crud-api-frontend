@@ -14,6 +14,16 @@ const createButton = document.getElementById('createButton');
 createButton.addEventListener('click', createUser); // ← conecta botão à função
 
 // DELETE BOTTON
-const deletebutton = document.getElementById('deleteButton');
+
+async function handleDelete(event) {
+    const btn = event.target.closest('.deletebtn'); // ✅ .classe
+    if (!btn) return;
+
+    const id = btn.dataset.id;
+    await deleteUser(id);
+    await renderUsers();
+}
+
+document.addEventListener('click', handleDelete);
 
 renderUsers();
