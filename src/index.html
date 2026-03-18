@@ -6,47 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Users</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-    <nav class="navbar justify-content-center" style="background-color: #212529">
-        <span class="navbar-brand text-white fw-bold">
-            <h1>PHP/JS CRUD Project</h1>
-        </span>
-    </nav>
 
-    <main class="row align-items-center justify-content-center">
-        <div class="card p-5 m-5 col-12 col-md-8">
-            <h3 class="fs-1 fw-bold pb-5">Users</h3>
-            <span style="display: none;">No users found.</span>
-            <section id="user-list" class="row">
-            </section>
-        </div>
+    <!-- HEADER -->
+    <header class="bg-dark text-white py-4 mb-4">
+        <h1 class="text-center m-0">PHP/JS CRUD Project</h1>
+    </header>
 
-        <div class="card p-5 m-5 col-12 col-md-8">
-            <h2 class="fs-1 fw-bold pb-5">Create User</h2>
-            <table class="w-100">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
+    <main class="container">
+        <!-- SEÇÃO: USERS -->
+        <section class="card p-4 mb-4">
+            <h2 class="mb-3">Users</h2>
+            <div class="row g-3" id="users">
+                <!-- Cards renderizados pelo JS -->
+            </div>
+        </section>
 
-                <tbody>
-                    <tr>
-                        <td class="pe-3"><input type="text" class="form-control" id="inputName"></td>
-                        <td class="pe-3"><input type="number" class="form-control" id="inputAge"></td>
-                        <td class="pe-3"><input type="email" class="form-control" id="inputEmail"></td>
-                        <td><button id="createButton" class="btn btn-dark">create</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <!-- SEÇÃO: CREATE USER -->
+        <section class="card p-4">
+            <h2 class="mb-3" id="form-title">Create User</h2>
+
+            <!-- Alerta de erro (escondido por padrão) -->
+            <div id="form-error" class="alert alert-danger d-none" role="alert"></div>
+
+            <form id="create-user-form" class="row g-3 align-items-end">
+
+                <div class="col-md-4">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" name="age" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="col-md-2 d-flex gap-2">
+                    <button type="submit" class="btn btn-dark flex-fill">Create</button>
+                    <button type="button" id="cancel-edit" class="btn btn-outline-secondary"
+                        style="display:none;">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SEÇÃO: EDIT USER (oculta por padrão) -->
+        <form id="edit-section" class="card p-5" style="display: none;">
+            <h2 class="fs-1 fw-bold mb-4">Update User</h2>
+            <input type="hidden" id="editId">
+            <div class="d-flex gap-3 align-items-end">
+                <div class="flex-fill">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" id="editName" placeholder="Name">
+                </div>
+                <div class="flex-fill">
+                    <label class="form-label">Age</label>
+                    <input type="number" class="form-control" id="editAge" placeholder="Age">
+                </div>
+                <div class="flex-fill">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="editEmail" placeholder="Email">
+                </div>
+                <div>
+                    <button type="button" id="cancelButton" class="btn btn-danger">Cancel</button>
+                    <button type="button" id="updateButton" class="btn btn-dark">Update</button>
+                </div>
+            </div>
+        </form>
+
     </main>
-    <script src="src/app.js" type="module"></script>
+
+    <script src="app.js" type="module"></script>
 </body>
 
 </html>

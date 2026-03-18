@@ -1,7 +1,16 @@
-// Função para GET a lista de usuários
-async function getUsers() {
-    const response = await fetch("http://localhost:8000/api/users");
-    const users = await response.json();
-    console.log(users);
+// API
+const apiUrl = "http://localhost:8000/api/users";
+
+export async function getUsers(apiUrl) {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            data.error || 'Failed to fetch users'
+        );
+    }
+
+    return data.users;
 }
 
