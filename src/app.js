@@ -26,4 +26,43 @@ async function handleDelete(event) {
 
 document.addEventListener('click', handleDelete);
 
+// Abre o formulário de edição com os dados do usuário
+async function handleEdit(event) {
+    const btn = event.target.closest('.editbtn');
+    if (!btn) return;
+
+    const id = btn.dataset.id;
+    const name = btn.dataset.name;
+    const age = btn.dataset.age;
+    const email = btn.dataset.email;
+
+    // Preenche os campos
+    document.getElementById('editId').value = id;
+    document.getElementById('editName').value = name;
+    document.getElementById('editAge').value = age;
+    document.getElementById('editEmail').value = email;
+
+    // Mostra a seção de edição
+    document.getElementById('edit-section').style.display = 'block';
+}
+
+// Cancela a edição
+document.getElementById('cancelButton').addEventListener('click', () => {
+    document.getElementById('edit-section').style.display = 'none';
+});
+
+// Salva a edição
+document.getElementById('updateButton').addEventListener('click', async () => {
+    const id = document.getElementById('editId').value;
+    const name = document.getElementById('editName').value;
+    const age = document.getElementById('editAge').value;
+    const email = document.getElementById('editEmail').value;
+
+    await updateUser(id, { name, age, email });
+    document.getElementById('edit-section').style.display = 'none';
+    await renderUsers();
+});
+
+document.addEventListener('click', handleEdit);
+
 renderUsers();

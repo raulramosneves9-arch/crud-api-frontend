@@ -1,14 +1,10 @@
-// Função para ATUALIZAR um usuário, POR COMPLETO
-export async function updateUser() {
-    const response = await fetch("http://localhost:8000/api/users?index=0", {
+export async function updateUser(id, { name, age, email }) {
+    const response = await fetch(`http://localhost:8000/api/users?id=${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            name: document.getElementById('inputName').value,
-            age: document.getElementById('inputAge').value,
-            email: document.getElementById('inputEmail').value
-        }),
+        body: JSON.stringify({ name, age, email }),
     });
     const updated = await response.json();
     console.log(updated);
+    return updated;
 }

@@ -15,7 +15,12 @@ export async function renderUsers() {
                     <p class="mb-1"><strong>Email:</strong> ${user.email}</p>
                 </div>
                 <div class="card-footer d-flex gap-2">
-                    <button class="btn btn-outline-dark btn-sm w-50">Edit</button>
+                    <button 
+                    data-id="${user.id}" 
+                    data-name="${user.name}" 
+                    data-age="${user.age}" 
+                    data-email="${user.email}"
+                    class="editbtn btn btn-outline-dark btn-sm w-50">Edit</button>
                     <button data-id="${user.id}" class="deletebtn btn btn-outline-danger btn-sm w-50">Delete</button>
                 </div>
             </article>
