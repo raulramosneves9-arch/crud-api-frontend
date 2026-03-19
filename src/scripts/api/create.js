@@ -1,16 +1,16 @@
+import axios from "axios";
+
 // ==================== POST ====================
 export async function createUser(apiUrl, { name, age, email }) {
-    const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, age: Number(age), email }),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(data.error || 'Failed to create user');
+    try {
+        const response = await axios.post(apiUrl, {
+            name,
+            age: Number(age),
+            email,
+        });
+        return response.data;
+    } catch (error) {
+        const message = error.response?.data?.error || 'Failed to create user';
+        throw new Error(message);
     }
-
-    return data;
 }

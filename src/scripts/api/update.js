@@ -1,18 +1,18 @@
+import axios from "axios";
+
 // ==================== PUT ====================
-export async function putUser(apiUrl, id, { name, age, email }) {
-    const response = await fetch(`${apiUrl}?id=${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, age: Number(age), email }),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(data.error || 'Failed to update user');
+export async function putUser(apiUrl, id, user) {
+    try {
+        const response = await axios.put(`${apiUrl}?id=${id}`, {
+            name: user.name,
+            age: Number(user.age),
+            email: user.email,
+        });
+        return response.data;
+    } catch (error) {
+        const message = error.response?.data?.error || 'Failed to update user';
+        throw new Error(message);
     }
-
-    return data;
 }
 
 // ==================== PATCH ====================
@@ -20,18 +20,11 @@ export async function patchUser(apiUrl, id, fields) {
     if (fields.age !== undefined) {
         fields.age = Number(fields.age);
     }
-
-    const response = await fetch(`${apiUrl}?id=${id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(fields),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(data.error || 'Failed to patch user');
+    try {
+        const response = await axios.patch(`${apiUrl}?id=${id}`, fields);
+        return response.data;
+    } catch (error) {
+        const message = error.response?.data?.error || 'Failed to patch user';
+        throw new Error(message);
     }
-
-    return data;
 }
