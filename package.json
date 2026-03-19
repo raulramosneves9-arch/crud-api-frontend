@@ -1,0 +1,23 @@
+{
+  "name": "crud-api-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raulramosneves9-arch/crud-api-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raulramosneves9-arch/crud-api-frontend/issues"
+  },
+  "homepage": "https://github.com/raulramosneves9-arch/crud-api-frontend#readme",
+  "dependencies": {
+    "axios": "^1.13.6"
+  }
+}
