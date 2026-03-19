@@ -63,7 +63,20 @@
 
     </main>
 
+    <div id="confirm-modal"
+        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:9999; align-items:center; justify-content:center;">
+        <div
+            style="background:#fff; border-radius:12px; padding:24px; width:280px; box-shadow:0 8px 24px rgba(0,0,0,0.2); text-align:center;">
+            <p style="margin-bottom:20px; font-size:1rem; font-weight:500;">Confirmar exclusão?</p>
+            <div style="display:flex; gap:10px; justify-content:center;">
+                <button id="confirm-yes" class="btn btn-danger btn-sm px-4">Sim</button>
+                <button id="confirm-no" class="btn btn-outline-secondary btn-sm px-4">Não</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ========== SCRIPTS ========== -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app.js" type="module"></script>
 
 </body>

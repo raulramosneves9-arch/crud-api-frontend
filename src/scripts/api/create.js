@@ -1,5 +1,3 @@
-import axios from "axios";
-
 // ==================== POST ====================
 export async function createUser(apiUrl, { name, age, email }) {
     try {

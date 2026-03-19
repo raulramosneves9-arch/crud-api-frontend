@@ -111,17 +111,23 @@ usersSection.addEventListener('click', async (event) => {
     if (target.dataset.action === 'delete') {
         const user = getUserFromCard(target);
 
-        if (!confirm('Are you sure you want to delete this user?')) return;
+        const modal = document.getElementById('confirm-modal');
+        modal.style.display = 'flex';
 
-        try {
-            await deleteUser(apiUrl, user.id);
+        document.getElementById('confirm-yes').onclick = async () => {
+            modal.style.display = 'none';
+            try {
+                await deleteUser(apiUrl, user.id);
+                if (editingId === user.id) exitEditMode();
+                renderUsers(apiUrl);
+            } catch (error) {
+                showError(error.message);
+            }
+        };
 
-            if (editingId === user.id) exitEditMode();
-
-            renderUsers(apiUrl);
-        } catch (error) {
-            showError(error.message);
-        }
+        document.getElementById('confirm-no').onclick = () => {
+            modal.style.display = 'none';
+        };
     }
 });
 

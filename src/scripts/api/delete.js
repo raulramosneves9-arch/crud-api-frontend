@@ -1,5 +1,3 @@
-import axios from "axios";
-
 // ==================== DELETE ====================
 export async function deleteUser(apiUrl, id) {
     try {

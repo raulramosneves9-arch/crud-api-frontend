@@ -1,5 +1,3 @@
-import axios from "axios";
-
 // ==================== PUT ====================
 export async function putUser(apiUrl, id, user) {
     try {
